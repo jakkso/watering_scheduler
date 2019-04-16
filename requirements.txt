@@ -1,0 +1,2 @@
+Click==7.0
+RPi.GPIO=0.6.5

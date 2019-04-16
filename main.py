@@ -3,6 +3,5 @@
 
 from sched.cli import group
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     group()
-

@@ -5,6 +5,7 @@ import RPi.GPIO as GPIO
 
 class Pin:
     """Implement GPIO pin handling class."""
+
     _on = GPIO.LOW
     _off = GPIO.HIGH
 
