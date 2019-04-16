@@ -9,7 +9,11 @@ PIN = Pin()
 
 @click.group()
 def group():
-    """Group CLI commands."""
+    """Watering Scheduler.
+
+    Turning the pin on triggers a relay, which in turn opens a sprinkler valve, watering the garden.
+    Currently, it is launched via a pair of contab entries: the first opens the valve, the second closes the valve.
+    """
     pass
 
 
