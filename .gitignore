@@ -1,0 +1,8 @@
+# Compiled and cached code
+sched/__init__.pyc
+sched/__pycache__/
+sched/cli.pyc
+
+# Log file
+water_scheduler.log
+
