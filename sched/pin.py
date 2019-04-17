@@ -12,7 +12,10 @@ class Pin:
     _off = GPIO.HIGH
 
     def __init__(self, number: int = 17) -> None:
-        """Construct instance, setup GPIO interface."""
+        """Construct instance, setup GPIO interface.
+
+        :param number: BCM pin number
+        """
         self.number = number
         self.logger = logger()
 
