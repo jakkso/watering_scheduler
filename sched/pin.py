@@ -1,6 +1,8 @@
-"""Contain class to GPIO pins on and off."""
+"""Contain class to turn GPIO pins on and off."""
 
 import RPi.GPIO as GPIO
+
+from sched.logger import logger
 
 
 class Pin:
@@ -12,6 +14,7 @@ class Pin:
     def __init__(self, number: int = 17) -> None:
         """Construct instance, setup GPIO interface."""
         self.number = number
+        self.logger = logger()
 
         # GPIO setup
         GPIO.setwarnings(False)
@@ -21,8 +24,10 @@ class Pin:
     def on(self) -> None:
         """Turn pin on."""
         GPIO.output(self.number, self._on)
+        self.logger.info('Valve opened.')
 
     def off(self) -> None:
         """Turn pin off."""
         GPIO.output(self.number, self._off)
         GPIO.cleanup()
+        self.logger.info('Valve closed.')
