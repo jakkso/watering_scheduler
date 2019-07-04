@@ -15,7 +15,6 @@ def group():
     Turning the pin on triggers a relay, which in turn opens a sprinkler valve, watering the garden.
     Currently, it is launched via a pair of contab entries: the first opens the valve, the second closes the valve.
     """
-    pass
 
 
 @click.command()
@@ -31,9 +30,10 @@ def off() -> None:
 
 
 @click.command()
-def run() -> None:
+@click.option('--seconds', default=THIRTY_MIN)
+def run(seconds: int) -> None:
     """Run program for 30 min."""
-    PIN.run_for(THIRTY_MIN)
+    PIN.run_for(seconds)
 
 
 group.add_command(on)
