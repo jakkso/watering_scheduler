@@ -1,4 +1,5 @@
 """Contain class to turn GPIO pins on and off."""
+import time
 
 import RPi.GPIO as GPIO
 
@@ -34,3 +35,15 @@ class Pin:
         GPIO.output(self.number, self._off)
         GPIO.cleanup()
         self.logger.info('Valve closed.')
+
+    def run_for(self, seconds: int) -> None:
+        """Open valve, sleep for `seconds`, close valve.
+
+        Prior to now, I've started the program via a pair of cron jobs, one to
+        open the valve, another to close it.  However, cron jobs can fail.
+        If the first job fails, it's no big deal: the water doesn't go on.  If the
+        second job fails, the valve never closes, and the water keeps running forever.
+        """
+        self.on()
+        time.sleep(seconds)
+        self.off()

@@ -5,6 +5,7 @@ import click
 from sched.pin import Pin
 
 PIN = Pin()
+THIRTY_MIN = 1800
 
 
 @click.group()
@@ -29,5 +30,12 @@ def off() -> None:
     PIN.off()
 
 
+@click.command()
+def run() -> None:
+    """Run program for 30 min."""
+    PIN.run_for(THIRTY_MIN)
+
+
 group.add_command(on)
 group.add_command(off)
+group.add_command(run)
