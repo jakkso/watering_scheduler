@@ -12,3 +12,4 @@ def create_app() -> Flask:
     app.register_blueprint(prints.relay_bp)
 
     return app
+
