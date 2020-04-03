@@ -30,7 +30,7 @@ def off() -> None:
 
 
 @click.command()
-@click.option('--seconds', default=THIRTY_MIN)
+@click.option("--seconds", default=THIRTY_MIN)
 def run(seconds: int) -> None:
     """Run program for 30 min."""
     PIN.run_for(seconds)

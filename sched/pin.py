@@ -28,13 +28,13 @@ class Pin:
     def on(self) -> None:
         """Turn pin on."""
         GPIO.output(self.number, self._on)
-        self.logger.info('Valve opened.')
+        self.logger.info("Valve opened.")
 
     def off(self) -> None:
         """Turn pin off."""
         GPIO.output(self.number, self._off)
         GPIO.cleanup()
-        self.logger.info('Valve closed.')
+        self.logger.info("Valve closed.")
 
     def run_for(self, seconds: int) -> None:
         """Open valve, sleep for `seconds`, close valve.
@@ -47,3 +47,17 @@ class Pin:
         self.on()
         time.sleep(seconds)
         self.off()
+
+    def toggle(self) -> bool:
+        """Toggle relay state, return current state."""
+        state = self.state
+        if state:
+            self.off()
+        else:
+            self.on()
+        return not state
+
+    @property
+    def state(self) -> int:
+        """Return relay state."""
+        return GPIO.input(self.number)
