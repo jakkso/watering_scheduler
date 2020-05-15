@@ -2,9 +2,9 @@
 
 import click
 
-from sched.pin import Pin
+from sched.pin import OutputPin
 
-PIN = Pin()
+PIN = OutputPin()
 THIRTY_MIN = 1800
 
 
